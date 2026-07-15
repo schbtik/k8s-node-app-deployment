@@ -29,5 +29,9 @@ jobs:
           
       - name: Test service URLs
         run: |
+          echo "Waiting 15 seconds for pod initialization..."
+          sleep 15
+          echo "Current pods status:"
+          kubectl get pods
           minikube service list
           minikube service nodejs-app --url
